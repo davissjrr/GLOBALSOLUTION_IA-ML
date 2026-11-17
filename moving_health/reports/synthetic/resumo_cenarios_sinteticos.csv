@@ -1,0 +1,4 @@
+﻿cenario,fator_demanda,fator_frota,solicitacoes_sinteticas,atendidas_pela_capacidade,nao_atendidas,cobertura_simulada,is_synthetic
+normal,1.0,1.0,2496,1733,763,0.6943108974358975,True
+pico_demanda,1.4,1.0,3483,2178,1305,0.6253229974160207,True
+frota_reduzida,1.0,0.65,2496,562,1934,0.22516025641025642,True
