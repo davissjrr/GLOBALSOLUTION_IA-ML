@@ -1,0 +1,43 @@
+{
+  "tipo_artefato": "experimento_sintetico",
+  "modelo": "sklearn.pipeline.Pipeline com PoissonRegressor",
+  "alvo": "trips_requested por hora × zona genérica × serviço",
+  "origem_dados": "dados gerados por scripts/simulate_trip_demand.py",
+  "semente": 2026,
+  "n_linhas": 25920,
+  "periodo_treino_inicio": "2025-01-01 00:00:00",
+  "periodo_treino_fim": "2025-03-17 23:00:00",
+  "periodo_holdout_inicio": "2025-03-18 00:00:00",
+  "periodo_holdout_fim": "2025-03-31 23:00:00",
+  "metodo_menor_wape": "baseline_media_historica",
+  "metricas": [
+    {
+      "metodo": "baseline_media_historica",
+      "mae": 0.619967532492334,
+      "rmse": 0.8490900168621266,
+      "wape": 1.0248909762234895,
+      "desvio_poisson": 1.3423627966803942,
+      "origem_dados": "sintetica",
+      "observacoes_holdout": 4032,
+      "inicio_holdout": "2025-03-18 00:00:00"
+    },
+    {
+      "metodo": "poisson_regressor",
+      "mae": 0.6956618007903996,
+      "rmse": 0.8865914553030804,
+      "wape": 1.150023936361989,
+      "desvio_poisson": 1.1782368139010824,
+      "origem_dados": "sintetica",
+      "observacoes_holdout": 4032,
+      "inicio_holdout": "2025-03-18 00:00:00"
+    }
+  ],
+  "versoes": {
+    "pandas": "2.2.3",
+    "numpy": "2.4.6",
+    "scikit_learn": "1.6.1",
+    "matplotlib": "3.10.0",
+    "joblib": "1.6.0"
+  },
+  "aviso": "Métricas e previsões medem somente dados sintéticos; não demonstram desempenho em corridas reais."
+}
