@@ -1,4 +1,4 @@
-# Moving Health — IA para acessibilidade e planejamento em saúde
+# Global Solution 2026.2 - Citizen Tech - Moving Health
 
 Protótipo acadêmico em Python para apoiar o planejamento de uma plataforma que conecta pessoas a serviços de saúde. O projeto demonstra preparação de dados, modelos, métricas, cenários de capacidade e pontos de integração.
 
@@ -10,17 +10,6 @@ O repositório contém duas trilhas separadas:
 2. **Simulação sintética:** geração de solicitações horárias fictícias, comparação de capacidade e cenários, e treino de um `PoissonRegressor`. Os números e previsões desta trilha são didáticos e não medem desempenho em corridas reais.
 
 Ainda não há histórico operacional do Moving Health confirmado. Portanto, este protótipo apoia uma demonstração da abordagem e não deve ser usado para decisões clínicas, despacho real ou promessa de tempo de chegada.
-
-## Entregáveis conferidos
-
-- Notebook reproduzível: `notebooks/01_moving_health_previsao_contextual.ipynb`.
-- Dados e origem: extração agregada do SIA/SUS em `data/raw/sia_sus_sp/`; dados sintéticos gerados com semente fixa em `data/synthetic/`; detalhes em [`docs/data_sources.md`](docs/data_sources.md) e [`docs/synthetic_data.md`](docs/synthetic_data.md).
-- Modelos: artefato de previsão contextual SIA/SUS em `models/moving_health_sia_sus.json`; modelo sintético treinado em `models/moving_health_demanda_sintetica.joblib` e metadados ao lado.
-- Avaliação: métricas, previsões, cobertura, tabelas de cenários e gráficos em `reports/`.
-- Integração demonstrativa: API local de previsão SIA/SUS em `scripts/forecast_service.py`; o notebook também gera uma previsão sintética para 24 horas e cenários de capacidade.
-- Pacote portátil para executar o notebook no Colab: `exports/moving_health_pacote.zip`.
-
-O notebook local contém o código completo e é reproduzível. Ao abrir no Colab, execute as células na ordem para que os gráficos, métricas e previsões apareçam na sessão.
 
 ## Resultados registrados
 
@@ -47,21 +36,6 @@ O CSV contém 25.920 linhas geradas para 90 dias, seis zonas genéricas e dois t
 O baseline teve menor MAE, RMSE e WAPE; o `PoissonRegressor` teve menor desvio Poisson. Como o WAPE sintético passa de 100%, a previsão ainda é fraca para contagens esparsas. O modelo está treinado e exportado para demonstrar o fluxo, mas não deve ser apresentado como eficaz para viagens reais.
 
 Na simulação de 14 dias, a cobertura da capacidade hipotética foi 69,43% no cenário normal, 62,53% no pico de demanda e 22,52% com frota reduzida. Esses resultados dependem das hipóteses descritas em [`docs/synthetic_data.md`](docs/synthetic_data.md).
-
-## Como colocar o notebook no seu repositório GitHub
-
-1. Crie um repositório no GitHub. Se for usar o botão do Colab, deixe-o público ou confirme que a sua conta Google tem acesso ao repositório privado.
-2. Envie a estrutura inteira do projeto para a raiz do repositório, preservando as pastas `notebooks/`, `data/`, `models/`, `reports/`, `scripts/`, `docs/` e `exports/`. O notebook precisa permanecer neste caminho: `notebooks/01_moving_health_previsao_contextual.ipynb`.
-3. Inclua `requirements-colab.txt` e `exports/moving_health_pacote.zip`. O ZIP é o pacote que o notebook pede para carregar no ambiente temporário do Colab.
-4. No link abaixo, troque `SEU_USUARIO/SEU_REPOSITORIO` pelo proprietário e nome do seu repositório. Se a branch principal não se chamar `main`, ajuste esse trecho também.
-
-Para enviar pelo site do GitHub, abra o repositório, escolha **Add file → Upload files**, arraste os arquivos e pastas do projeto e confirme o commit. Também é possível clonar o repositório, copiar o conteúdo do projeto para a pasta clonada e enviar com `git add`, `git commit` e `git push`; veja a [documentação do GitHub para adicionar arquivos](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository). O Colab pode abrir notebooks diretamente do GitHub. Quando abrir o original do repositório, salve o resultado como uma cópia no GitHub ou baixe o `.ipynb` editado e envie/substitua o arquivo no repositório; executar o notebook não atualiza automaticamente o arquivo de origem. Consulte o [FAQ oficial do Colab](https://research.google.com/colaboratory/faq.html?hl=pt-BR).
-
-```markdown
-[![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/SEU_USUARIO/SEU_REPOSITORIO/blob/main/notebooks/01_moving_health_previsao_contextual.ipynb)
-```
-
-Você pode colar esse bloco no início deste README. Ao clicar no selo, o Colab abre o notebook diretamente do GitHub. Depois, execute as células em ordem; quando solicitado, envie `moving_health_pacote.zip` que você baixou da pasta `exports/` do repositório. O ambiente do Colab é temporário, então baixe o `moving_health_resultados.zip` gerado ao final se quiser guardar as saídas da sessão.
 
 ## Fluxo principal: Google Colab
 
